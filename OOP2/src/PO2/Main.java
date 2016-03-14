@@ -5,11 +5,19 @@
  */
 package PO2;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -31,21 +39,31 @@ public class Main {
         for (MenuKaartArtikel menuKaartArtikel : menukaart) {
             System.out.println(menuKaartArtikel.toString());
         }
-
+        
+        System.out.println("\n--- input and ouput binary ---\n");
+        
+        //new ObjectOutputSteam write arraylist menukaart with all the object artikels to the binary file
         try (
-                FileOutputStream output = new FileOutputStream("temp.dat");) {
-            for (MenuKaartArtikel menuKaartArtikel : menukaart) {
-                output.write(menuKaartArtikel.getArtikelID());
-                output.write(menuKaartArtikel.getCalorien());
-            }
+                ObjectOutputStream output2 = new ObjectOutputStream(new FileOutputStream("object.dat"));) {
+            output2.writeObject(menukaart);
         }
 
+        //new ObjectInputStream read arraylist from file with all the object artikels
         try (
-                FileInputStream input = new FileInputStream("temp.dat");) {
-            int value;
-            while ((value = input.read()) != -1) {
-                System.out.println(value + " ");
+                ObjectInputStream input2 = new ObjectInputStream(new FileInputStream("object.dat"));) {
+            
+            ArrayList<MenuKaartArtikel> menukaart2 = (ArrayList) (input2.readObject());
+            
+            //sort de arraylist
+            Collections.sort(menukaart2);
+            for (MenuKaartArtikel artikel2 : menukaart2) {
+                System.out.println(artikel2.toString());
             }
+            
+                    
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

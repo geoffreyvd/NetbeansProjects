@@ -45,3 +45,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.xml
+OOP2/object.dat
+*.class
+OOP2/nbproject/genfiles.properties
+OOP2/temp.dat

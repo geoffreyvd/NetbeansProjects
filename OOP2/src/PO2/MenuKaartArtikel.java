@@ -1,10 +1,12 @@
 package PO2;
 
+import java.io.Serializable;
+
 /**
  * @description Abstract class for menu articels
  * @author geoffrey
  */
-public abstract class MenuKaartArtikel {
+public abstract class MenuKaartArtikel implements Serializable, Comparable<MenuKaartArtikel>{
     private int artikelID;
     private int calorien;
     private float prijs;
@@ -36,6 +38,11 @@ public abstract class MenuKaartArtikel {
     @Override
     public String toString() {
         return "artikelID=" + artikelID + ", calorien=" + calorien + ", prijs=" + prijs + ", naam=" + naam;
+    }
+
+    @Override
+    public int compareTo(MenuKaartArtikel t) {
+        return Integer.compare(this.calorien, t.calorien);
     }
     
     
