@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package PO2;
 
 /**
- *
+ * @description Abstract class for menu articels
  * @author geoffrey
  */
 public abstract class MenuKaartArtikel {
@@ -22,7 +17,9 @@ public abstract class MenuKaartArtikel {
         this.naam = naam;
     }
 
-    abstract public int getArtikelID();
+    public int getArtikelID(){
+        return artikelID;
+    }
 
     public int getCalorien() {
         return calorien;
@@ -34,6 +31,11 @@ public abstract class MenuKaartArtikel {
 
     public String getNaam() {
         return naam;
+    }
+
+    @Override
+    public String toString() {
+        return "artikelID=" + artikelID + ", calorien=" + calorien + ", prijs=" + prijs + ", naam=" + naam;
     }
     
     

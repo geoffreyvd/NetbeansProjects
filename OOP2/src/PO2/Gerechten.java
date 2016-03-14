@@ -20,9 +20,15 @@ public class Gerechten extends MenuKaartArtikel{
         this.gram = gram;
         this.maakTijd = maakTijd;
     }   
+ 
 
     @Override
-    public int getArtikelID() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String toString() {
+        String text = "";
+        text += super.toString();
+        text += ", " + "beschrijving=" + beschrijving + ", gram=" + gram + ", maakTijd=" + maakTijd + " minuten";
+        return text;
     }
+    
+    
 }

@@ -15,11 +15,14 @@ public class Dranken extends MenuKaartArtikel{
     public Dranken(int milliliter, int artikelID, int calorien, float prijs, String naam) {
         super(artikelID, calorien, prijs, naam);
         this.milliliter = milliliter;
-    }
+    }  
 
     @Override
-    public int getArtikelID() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String toString() {
+        String text = "";
+        text += super.toString();
+        text += ", " + "milliliter=" + milliliter;
+        return text;
     }
     
 }

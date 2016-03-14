@@ -17,4 +17,11 @@ public class Frisdrank extends Dranken{
         this.merk = merk;
     }
     
+    @Override
+    public String toString() {
+        String text = "";
+        text += super.toString();
+        text += ", " + "merk=" + merk;
+        return text;
+    }
 }
