@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<addressbook
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='Addressbook.xsd'>
+    
+    <contact>
+        <name first="Desiree" middle="" last="Bakema"/>
+        <BSN>9876543210</BSN>        
+        
+        <telephone type="mob" number="0611223344"/>
+        <telephone type="work" number="0612341234"/>
+        <telephone type="home" number="0207777333"/>
+        
+        <address streetname="Antwerpstraat" housenumber="23" city="Amsterdam" postalcode="1088HG" country="Nederland"/>
+        
+        <email>desiree@gmail.com</email>
+        <email>Bakema01@hva.nl</email>
+        
+        <birthdate>1970-08-23</birthdate>
+        <position>manager Informatica</position>
+    </contact>
+    
+    <contact>
+        <name first="Dan" middle="" last="Bakema"/>
+        <BSN>1234554321</BSN>        
+        
+        <telephone type="mob" number="0655667788 "/>
+        <telephone type="work" number="0655667788 "/>
+        <telephone type="home" number="0207777333"/>
+        
+        <address streetname="Antwerpstraat" housenumber="23" city="Amsterdam" postalcode="1088HG" country="Nederland"/>
+        
+        <email>Bakema1965@hotmail.com </email>
+        <email>Bakema02@hva.nl </email>
+        
+        <birthdate>1965-07-12</birthdate>
+        <position>secretaresse Informatica</position>
+    </contact>
+    
+    <contact>
+        <name first="Jan-Peter" middle="de" last="Visser"/>
+        <BSN>1233333321</BSN>        
+        
+        <telephone type="mob" number="0689898989 "/>
+        <telephone type="home" number="0723334444 "/>
+        
+        <address streetname="Kleinhof" housenumber="1" city="Heiloo" postalcode="1855BW" country="Nederland"/>
+        
+        <email>kleintjeVisser@hva.nl</email>
+        
+        <birthdate>1980-09-23</birthdate>
+        <position>docent Wiskunde</position>
+        <position>docent Informatica</position>
+    </contact>
+    
+    
+    
+</addressbook>

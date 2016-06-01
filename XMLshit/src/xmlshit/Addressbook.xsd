@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<schema version="1.0"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified">
+ 
+    <element name="addressbook">
+        <complexType>
+            <sequence>
+                <element name="contact" maxOccurs="unbounded" minOccurs="0">
+                    <complexType>        
+                        <sequence>                 
+                            <element name="name">
+                                <complexType>
+                                    <simpleContent>
+                                        <extension base="string">
+                                            <attribute type="string" name="first" use="required"/>
+                                            <attribute type="string" name="middle"/>
+                                            <attribute type="string" name="last" use="required"/>
+                                        </extension>
+                                    </simpleContent>
+                                </complexType>
+                            </element>
+                        
+                            <element name="BSN" type="integer" />
+                            <element name="telephone" maxOccurs="unbounded" minOccurs="0">
+                                <complexType>
+                                    <simpleContent>
+                                        <extension base="string">
+                                            <attribute name="type" use="required">                                                
+                                                <simpleType>
+                                                    <restriction base="string">
+                                                        <enumeration value="mob"/>
+                                                        <enumeration value="home"/>
+                                                        <enumeration value="work"/>
+                                                    </restriction>
+                                                </simpleType>
+                                            </attribute>
+                                            <attribute type="integer" name="number" use="required"/>
+                                        </extension>
+                                    </simpleContent>
+                                </complexType>
+                            </element>
+                                                    
+                            <element name="address">
+                                <complexType>
+                                    <simpleContent>
+                                        <extension base="string">
+                                            <attribute type="string" name="streetname" use="required"/>
+                                            <attribute type="string" name="housenumber" use="required"/>
+                                            <attribute type="string" name="city" use="required"/>
+                                            <attribute name="postalcode" use="required">
+                                                <simpleType>
+                                                    <restriction base="string">
+                                                        <pattern value="[0-9]{4}[A-Z]{2}"/>
+                                                    </restriction>
+                                                </simpleType>
+                                            </attribute>
+                                            <attribute type="string" name="country" use="required"/>
+                                        </extension>
+                                    </simpleContent>
+                                </complexType>
+                            </element>
+                            
+                            <element name="email" maxOccurs="unbounded" minOccurs="1">
+                                <simpleType>
+                                    <restriction base="string">
+                                        <pattern value=".*@.*"/>
+                                    </restriction>
+                                </simpleType>
+                            </element>
+                        
+                            <element name="birthdate" type="date" />
+                            <element name="position" type="string" maxOccurs="unbounded" minOccurs="0"/>
+                                                    
+                        </sequence>
+                    </complexType>
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+        
+</schema>
