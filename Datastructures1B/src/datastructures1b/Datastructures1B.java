@@ -26,22 +26,20 @@ public class Datastructures1B {
         list.add(3);
         list.add(1);
         System.out.println("is de lijst aflopend?: " + aflopend(list));
-        
-        
+
         System.out.println("opdracht 2 yololiaans: ");
         String[] yololiaans = yololiaans(5);
         for (String string : yololiaans) {
             System.out.println(string);
         }
         System.out.println("aantal unieke combinaties: " + yololiaans.length);
-        
-        
-        System.out.println("\nopdarcht 3 language: ");        
+
+        System.out.println("\nopdarcht 3 language: ");
         String[] yolo = {"yo", "lo"};
         String[] xaxixu = {"xa", "xi", "xu"};
-        
-        String[] language =  language(5, xaxixu);
-        
+
+        String[] language = language(5, xaxixu);
+
         for (String string : language) {
             System.out.println(string);
         }
@@ -49,13 +47,20 @@ public class Datastructures1B {
     }
 
     public static boolean aflopend(ArrayList<Integer> rij) {
+        //Als het eerste getal kleiner is dan het tweede getal,
+        //dan is de opgegeven rij niet aflopend: return false
         if (rij.get(0) < rij.get(1)) {
             return false;
         }
+        //Het eerste getal is gechecked dus hij kan uit de rij worden gehaalt.
         rij.remove(0);
+        //Als na de remove nog maar 1 getal over is in de rij, return true;
+        //Dit betekent dus dat de rij aflopend is. Hiermee stopt de recursie.
         if (rij.size() == 1) {
             return true;
         }
+        //Roep deze methode aan en geef de rij mee waarbij het eerste getal
+        //is weg gehaald.
         return aflopend(rij);
     }
 
@@ -63,32 +68,40 @@ public class Datastructures1B {
         //De if zorgt ervoor dat het geen oneindige loop wordt, 
         //ook wordt er een lege string gereturned zodat bij n == 1
         //er één maal door de for loop heen wordt gelopen, dit heeft als
-        //resultaat: yo en lo bij n == 1
+        //resultaat: yo + "" en lo + "" bij n == 1. Als er een leeg array
+        //zou worden gereturned dan zou hij niet door de for loop heen gaan.
         if (n == 0) {
             String[] array = new String[1];
             array[0] = "";
             return array;
         }
-        
-        //maak een array aan met de grote van twee keer het aantal lettergrepen
+
+        //Maak een arraylist aan zodat er flexibel strings toegevoegd kunnen 
+        //worden.
         ArrayList<String> lijst = new ArrayList<>();
+        //Loop door de array heen die de deze functie returned bij n - 1.
         for (String string : yololiaans(n - 1)) {
+            //Plak elke string uit de array achter zowel yo als lo.
             lijst.add("yo" + string);
             lijst.add("lo" + string);
         }
+        //zet de arraylist om naar een array en return hem.
         return lijst.toArray(new String[0]);
     }
-    
+
     public static String[] language(int n, String[] syllables) {
         if (n == 0) {
             String[] array = new String[1];
             array[0] = "";
-            return array;            
+            return array;
         }
-        
-        ArrayList<String> lijst = new ArrayList<>();   
+
+        ArrayList<String> lijst = new ArrayList<>();
         for (String string : language(n - 1, syllables)) {
             for (String syllable : syllables) {
+                //Een kleine aanpassing op de vorige methode, hij loopt namelijk 
+                //door elke opgegeven syllable in syllables en plakt daar             
+                //vervolgens de string achter aan
                 lijst.add(syllable + string);
             }
         }
