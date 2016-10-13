@@ -5,6 +5,7 @@
  */
 package datastructures2;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -15,7 +16,7 @@ public class Klas implements Iterable<Student>{
     public static final byte MAXAANTALSTUDENTEN = 32;
     private char leerroute;
     private int klasNummer;
-    private Student[] studenten = new Student[32];
+    private ArrayList<Student> studenten = new ArrayList<>();
     private byte aantalStudenten;
 
     public Klas(char leerroute, int klasNummer) {
@@ -25,7 +26,7 @@ public class Klas implements Iterable<Student>{
     }
 
     public void addStudent(Student student){
-        studenten[aantalStudenten] = student;
+        studenten.add(student);
         aantalStudenten++;
     }    
     
@@ -50,16 +51,16 @@ public class Klas implements Iterable<Student>{
         return klasNummer;
     }
 
-    public Student[] getStudenten() {
+    public ArrayList<Student> getStudenten() {
         return studenten;
     }
     
     public Student getStudent(byte index){
-        return studenten[index];
+        return studenten.get(index);
     }
 
-    public byte getAantalStudenten() {
-        return aantalStudenten;
+    public int getAantalStudenten() {
+        return studenten.size();
     }
 
     @Override
@@ -83,7 +84,7 @@ public class Klas implements Iterable<Student>{
 
         @Override
         public Student next() {
-            return studenten[currentStudent++];
+            return studenten.get(currentStudent++);
         }
         
     }
