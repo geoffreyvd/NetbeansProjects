@@ -45,15 +45,5 @@ public class Student implements Comparable<Student>{
     @Override
     public int compareTo(Student t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    private class studentCijferComparator implements Comparator<Student>{
-
-        @Override
-        public int compare(Student t, Student t1) {
-            return Math.round(t.cijfer - t1.cijfer);
-        }
-        
-    }
-    
+    }    
 }
