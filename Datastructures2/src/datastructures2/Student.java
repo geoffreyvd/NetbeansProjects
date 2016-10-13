@@ -34,8 +34,12 @@ public class Student implements Comparable<Student>{
         this.studentNummer = newStudentNumber();
         this.klas = klas;
         this.cijfer = cijfer;
-    }  
+    }
     
+    @Override
+    public String toString() {
+        return studentNummer + ", " + cijfer + ", " + klas;
+    }
     
     private static int newStudentNumber(){
         CURRENTSTUDENTNUMMER++;

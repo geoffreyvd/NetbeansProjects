@@ -6,6 +6,7 @@
 package datastructures2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -32,6 +33,7 @@ public class Datastructures2 {
         System.out.println("aantal klassen per richting: " + aantalKlassenPerRichting);
         System.out.println("aantal studenten per klas: " + aantalStudentenPerKlas);
         
+        ArrayList<Student> studenten = new ArrayList<>();
         ArrayList<Klas> klassen = new ArrayList<>(aantalKlassen);
         //voeg klassen toe, per richting evenveel klassen dus kan ze tegelijk 
         //toewijzen.
@@ -50,7 +52,9 @@ public class Datastructures2 {
                 //studenten bereikt, stop dan. Zo worden er precies het aantal
                 //opgegeven studenten verdeelt onder de klassen.
                 if (newStudentCount < aantalStudenten) {
-                    klas.addStudent(new Student(klas, (float) ((Math.random() * 9) + 1)));
+                    Student student = new Student(klas, (float) ((Math.random() * 9) + 1));
+                    klas.addStudent(student);
+                    studenten.add(student);
                     newStudentCount++;
                 } else {
                     break;
@@ -67,5 +71,13 @@ public class Datastructures2 {
 //            }
         }
         System.out.println("aantal studenten per klas opgeteld: " + aantalStudenten2);
+        
+        Collections.shuffle(studenten);
+        StudentCijferComparator c = new StudentCijferComparator();
+        Sorter.bubbleSort(studenten, c);
+        
+        for (Student s : studenten) {
+            System.out.println(s);
+        }
     }
 }
