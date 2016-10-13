@@ -5,37 +5,37 @@
  */
 package datastructures2;
 
+import java.util.Comparator;
+import java.util.List;
+
 /**
  *
  * @author Thomas
  */
 public class Sorter {
-    //public static Comparable[] bubbleSort(List<T> unsortedList, Comparator c)
-    public static Comparable[] bubbleSort(Comparable[] unsortedList) {
+    public static void bubbleSort(List unsortedList, Comparator c) {
         
         boolean unsorted = true;
         while (unsorted) {
             boolean swapped = false;
             int skipIndex = 0;
             
-            for (int i = 0; i < unsortedList.length - skipIndex; i++) {
-                if (i + 1 == unsortedList.length - skipIndex) {
+            for (int i = 0; i < unsortedList.size() - skipIndex; i++) {
+                if (i + 1 == unsortedList.size() - skipIndex) {
                     break;
                 }
                 
-                if (unsortedList[i].compareTo(unsortedList[i + 1]) < 0) {
+                if (c.compare(unsortedList.get(i), unsortedList.get(i + 1)) < 0) {
                     swapped = true;
-                    Comparable temp = unsortedList[i];
-                    unsortedList[i] = unsortedList[i + 1];
-                    unsortedList[i + 1] = temp;
+                    Object temp = unsortedList.get(i);
+                    unsortedList.set(i, unsortedList.get(i + 1));
+                    unsortedList.set(i + 1, temp);
                 }
             }
             
             skipIndex++;
             unsorted = swapped;
         }
-        
-        return unsortedList;
     }
     
     public static Comparable[] selectionSort(Comparable[] unsortedList) {

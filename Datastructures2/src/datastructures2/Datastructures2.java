@@ -68,5 +68,4 @@ public class Datastructures2 {
         }
         System.out.println("aantal studenten per klas opgeteld: " + aantalStudenten2);
     }
-
 }
