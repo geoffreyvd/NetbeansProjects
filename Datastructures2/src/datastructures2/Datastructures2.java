@@ -65,19 +65,33 @@ public class Datastructures2 {
         int aantalStudenten2 = 0;
         for (Klas klas : klassen) {
             aantalStudenten2 += klas.getAantalStudenten();
-            System.out.println("klas: " + klas + ", " + klas.getAantalStudenten());
+            System.out.println("klas: " + klas + ", " + klas.getStudenten().size());
 //            for (Student student : klas) {
 //                System.out.println(String.format("%.1f", student.getCijfer()));
 //            }
         }
         System.out.println("aantal studenten per klas opgeteld: " + aantalStudenten2);
         
+        //sorteren op cijfer met bubblesort
         Collections.shuffle(studenten);
         StudentCijferComparator c = new StudentCijferComparator();
         Sorter.bubbleSort(studenten, c);
         
         for (Student s : studenten) {
             System.out.println(s);
+        }
+        
+        System.out.println("BUCKETSORT----------------------------------");
+        
+        Collections.shuffle(studenten);
+        
+        ArrayList<Bucket> buckets = Sorter.bucketSortStudents(studenten);
+        
+        for (Bucket bucket : buckets) {
+            System.out.println("KLAS: " + bucket.getKlas());
+            for (Student s : bucket.getItems()) {
+                System.out.println(s.toString());
+            }
         }
     }
 }

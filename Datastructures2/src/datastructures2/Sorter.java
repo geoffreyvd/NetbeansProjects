@@ -5,6 +5,7 @@
  */
 package datastructures2;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -38,35 +39,40 @@ public class Sorter {
         }
     }
     
-    public static Comparable[] selectionSort(Comparable[] unsortedList) {
+    public static ArrayList<Bucket> bucketSortStudents(ArrayList<Student> unsortedList) {
         
-        boolean unsorted = true;
-        while (unsorted) {
-            boolean swapped = false;
-            int skipIndex = 0;
-            int biggestIndex = skipIndex;
-            
-            for (int i = skipIndex; i < unsortedList.length; i++) {
-                if (i + 1 == unsortedList.length - skipIndex) {
+        KlasComparator c = new KlasComparator();
+        ArrayList<Bucket> buckets = new ArrayList<>();
+        
+        Bucket addedTo;
+        
+        for (Student s : unsortedList) {
+            addedTo = null;
+            for (Bucket b : buckets) {
+                int result = c.compare(s.getKlas(), b.getKlas());
+                if (result > 0) {
+                    Bucket newBucket = new Bucket();
+                    newBucket.setKlas(s.getKlas());
+                    newBucket.addStudent(s);
+                    buckets.add(newBucket);
+                    addedTo = b;
                     break;
                 }
-                
-                if (unsortedList[i].compareTo(unsortedList[i + 1]) < 0) {
-                    biggestIndex = i + 1;
+                else if (result == 0) {
+                    b.addStudent(s);
+                    addedTo = b;
+                    break;
                 }
             }
             
-            if (biggestIndex != skipIndex) {
-                swapped = true;
-                Comparable temp = unsortedList[skipIndex];
-                unsortedList[skipIndex] = unsortedList[biggestIndex];
-                unsortedList[biggestIndex] = temp;
+            if (addedTo == null) {
+                Bucket last = new Bucket();
+                last.setKlas(s.getKlas());
+                last.addStudent(s);
+                buckets.add(last);
             }
-            
-            skipIndex++;
-            unsorted = swapped;
         }
         
-        return unsortedList;
+        return buckets;
     }
 }

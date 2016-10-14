@@ -11,10 +11,11 @@ import java.util.Comparator;
  *
  * @author Thomas
  */
-public class KlasComparator implements Comparator<Klas> {
+public class StudentKlasComparator implements Comparator<Student> {
 
     @Override
-    public int compare(Klas k1, Klas k2) {
-        return k1.toString().compareTo(k2.toString());
+    public int compare(Student s1, Student s2) {
+        return s1.getKlas().toString().compareTo(s2.getKlas().toString());
     }
+    
 }
