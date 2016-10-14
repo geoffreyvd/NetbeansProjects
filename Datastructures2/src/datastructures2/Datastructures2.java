@@ -32,7 +32,7 @@ public class Datastructures2 {
         System.out.println("aantal studenten per richting: " + aantalStudentenPerRichting);
         System.out.println("aantal klassen per richting: " + aantalKlassenPerRichting);
         System.out.println("aantal studenten per klas: " + aantalStudentenPerKlas);
-        
+
         ArrayList<Student> studenten = new ArrayList<>();
         ArrayList<Klas> klassen = new ArrayList<>(aantalKlassen);
         //voeg klassen toe, per richting evenveel klassen dus kan ze tegelijk 
@@ -43,8 +43,9 @@ public class Datastructures2 {
             klassen.add(new Klas('N', i));
             klassen.add(new Klas('S', i));
             klassen.add(new Klas('T', i));
+            
         }
-        
+
         int newStudentCount = 0;
         for (int i = 0; i < aantalStudentenPerKlas; i++) {
             for (Klas klas : klassen) {
@@ -71,13 +72,24 @@ public class Datastructures2 {
 //            }
         }
         System.out.println("aantal studenten per klas opgeteld: " + aantalStudenten2);
+
+//        Collections.shuffle(studenten);
+//        StudentCijferComparator c = new StudentCijferComparator();
+//        Sorter.bubbleSort(studenten, c);
+//        
+//        for (Student s : studenten) {
+//            System.out.println(s);
+//        }
+        Collections.shuffle(klassen);
         
-        Collections.shuffle(studenten);
-        StudentCijferComparator c = new StudentCijferComparator();
-        Sorter.bubbleSort(studenten, c);
-        
-        for (Student s : studenten) {
-            System.out.println(s);
+        for (Klas klas : klassen) {
+            System.out.println("klas: " + klas);
+            Collections.shuffle(klas.getStudenten());
+            for (Student student : klas) {
+                System.out.println("student nr: " + student.getStudentNummer());
+            }
+            System.out.println("");
         }
+        
     }
 }

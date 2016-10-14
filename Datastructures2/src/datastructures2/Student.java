@@ -48,6 +48,6 @@ public class Student implements Comparable<Student>{
 
     @Override
     public int compareTo(Student t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return studentNummer - t.studentNummer;
     }    
 }
