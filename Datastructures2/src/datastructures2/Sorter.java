@@ -47,6 +47,9 @@ public class Sorter {
         Bucket addedTo;
         
         for (Student s : unsortedList) {
+            if (s.getKlas().toString().equals("IT20002")) {
+                int d = 1;
+            }
             addedTo = null;
             for (Bucket b : buckets) {
                 int result = c.compare(s.getKlas(), b.getKlas());

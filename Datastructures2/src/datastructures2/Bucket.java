@@ -40,13 +40,19 @@ public class Bucket {
         }
         
         int iteration = 0;
+        boolean added = false;
         for (Student listItem : items) {
             if (comparator.compare(student, listItem) < 0) {
                 items.add(iteration, student);
+                added = true;
                 break;
             }
             
             iteration++;
+        }
+        
+        if (!added) {
+            items.add(iteration, student);
         }
     }
 }
