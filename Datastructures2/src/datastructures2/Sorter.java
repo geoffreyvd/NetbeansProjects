@@ -68,8 +68,8 @@ public class Sorter {
                     int iterator = 0;
                     boolean added = false;
                     for (Bucket bucket : buckets) {
-                        if (c.compare(bucket.getKlas(), newBucket.getKlas()) < 0) {
-                            buckets.add(iterator, bucket);
+                        if (c.compare(bucket.getKlas(), newBucket.getKlas()) > 0) {
+                            buckets.add(iterator, newBucket);
                             added = true;
                             break;
                         }
