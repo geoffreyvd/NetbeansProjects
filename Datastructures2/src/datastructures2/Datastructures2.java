@@ -7,6 +7,7 @@ package datastructures2;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 
 /**
  *
@@ -63,13 +64,14 @@ public class Datastructures2 {
         }
 
         int aantalStudenten2 = 0;
-        for (Klas klas : klassen) {
-            aantalStudenten2 += klas.getAantalStudenten();
-            System.out.println("klas: " + klas + ", " + klas.getStudenten().size());
+//        for (Klas klas : klassen) {
+//            aantalStudenten2 += klas.getAantalStudenten();
+//            System.out.println("klas: " + klas + ", " + klas.getStudenten().size());
+//            Locale local = new Locale("");
 //            for (Student student : klas) {
-//                System.out.println(String.format("%.1f", student.getCijfer()));
+//                System.out.println(String.format(local, "%.1f", student.getCijfer()) + ",");
 //            }
-        }
+//        }
         System.out.println("aantal studenten per klas opgeteld: " + aantalStudenten2);
         
         //sorteren op cijfer met bubblesort
