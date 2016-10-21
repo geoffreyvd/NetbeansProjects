@@ -50,15 +50,7 @@ public class Sorter {
             addedTo = null;
             for (Bucket b : buckets) {
                 int result = c.compare(s.getKlas(), b.getKlas());
-                if (result > 0) {
-                    Bucket newBucket = new Bucket();
-                    newBucket.setKlas(s.getKlas());
-                    newBucket.addStudent(s);
-                    buckets.add(newBucket);
-                    addedTo = b;
-                    break;
-                }
-                else if (result == 0) {
+                if (result == 0) {
                     b.addStudent(s);
                     addedTo = b;
                     break;
@@ -66,10 +58,10 @@ public class Sorter {
             }
             
             if (addedTo == null) {
-                Bucket last = new Bucket();
-                last.setKlas(s.getKlas());
-                last.addStudent(s);
-                buckets.add(last);
+                Bucket newBucket = new Bucket();
+                newBucket.setKlas(s.getKlas());
+                newBucket.addStudent(s);
+                buckets.add(newBucket);
             }
         }
         

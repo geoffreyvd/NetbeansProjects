@@ -5,7 +5,6 @@
  */
 package datastructures2;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
@@ -34,7 +33,6 @@ public class Bucket {
         if (comparator == null) {
             comparator = new StudentNummerComparator();
         }
-        
         
         if (items.size() < 1) {
             items.add(student);
