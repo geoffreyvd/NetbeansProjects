@@ -28,10 +28,14 @@ public class HTQuadraticProbing {
         while (true) {
             int putIndex = index + (int)Math.pow(newIndex, 2);
             putIndex = putIndex % table.length;
+            putIndex = Math.abs(putIndex);
             if (table[putIndex] == null) {
                 table[putIndex] = s;
                 break;
             } else {
+                if (newIndex > 1000) {
+                    int x = 2;
+                }
                 newIndex++;
                 collisionsCount++;
             }
@@ -45,6 +49,7 @@ public class HTQuadraticProbing {
         while (true) {
             int putIndex = index + (int)Math.pow(newIndex, 2);
             putIndex = putIndex % table.length;
+            putIndex = Math.abs(putIndex);
             if (table[putIndex].getLdap().equals(key)) {
                 return table[putIndex];
             }
