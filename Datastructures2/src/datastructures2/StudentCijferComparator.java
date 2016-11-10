@@ -15,6 +15,7 @@ public class StudentCijferComparator implements Comparator<Student> {
 
     @Override
     public int compare(Student t, Student t1) {
+        Counter.countStudenten++;
         return Float.compare(t.getCijfer(), t1.getCijfer());
     }
 

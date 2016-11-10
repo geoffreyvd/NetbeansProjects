@@ -26,7 +26,6 @@ public class Sorter {
                 if (i + 1 == unsortedList.size() - skipIndex) {
                     break;
                 }
-
                 if (c.compare(unsortedList.get(i), unsortedList.get(i + 1)) < 0) {
                     swapped = true;
                     Object temp = unsortedList.get(i);
@@ -41,7 +40,6 @@ public class Sorter {
     }
 
     public static ArrayList<Bucket> bucketSortStudents(ArrayList<Student> unsortedList) {
-
         KlasComparator c = new KlasComparator();
         ArrayList<Bucket> buckets = new ArrayList<>();
 

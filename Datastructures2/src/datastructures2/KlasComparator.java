@@ -15,6 +15,7 @@ public class KlasComparator implements Comparator<Klas> {
 
     @Override
     public int compare(Klas k1, Klas k2) {
+        Counter.countKlas++;
         return k1.toString().compareTo(k2.toString());
     }
 }

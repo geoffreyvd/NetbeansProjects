@@ -15,6 +15,7 @@ public class StudentKlasComparator implements Comparator<Student> {
 
     @Override
     public int compare(Student s1, Student s2) {
+        Counter.countStudenten++;
         return s1.getKlas().toString().compareTo(s2.getKlas().toString());
     }
     

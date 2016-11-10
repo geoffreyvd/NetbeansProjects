@@ -19,7 +19,7 @@ public class Datastructures2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int aantalStudenten = 165;
+        int aantalStudenten = 100;
         int aantalLeerroutes = 5;
         //Rondt af naar boven, bij 31/5 = 6,2 = 7 zodat er genoeg plek is
         //bij de volgende berekeningen
@@ -63,7 +63,7 @@ public class Datastructures2 {
             }
         }
 
-        int aantalStudenten2 = 0;
+//        int aantalStudenten2 = 0;
 //        for (Klas klas : klassen) {
 //            aantalStudenten2 += klas.getAantalStudenten();
 //            System.out.println("klas: " + klas + ", " + klas.getStudenten().size());
@@ -72,28 +72,31 @@ public class Datastructures2 {
 //                System.out.println(String.format(local, "%.1f", student.getCijfer()) + ",");
 //            }
 //        }
-        System.out.println("aantal studenten per klas opgeteld: " + aantalStudenten2);
-        
+//        System.out.println("aantal studenten per klas opgeteld: " + aantalStudenten2);
+//        
         //sorteren op cijfer met bubblesort
+//        Collections.shuffle(studenten);
+//        StudentCijferComparator c = new StudentCijferComparator();
+//        Sorter.bubbleSort(studenten, c);
+        
+//        for (Student s : studenten) {
+//            System.out.println(s);
+//        }
+//        
+        //System.out.println("BUCKETSORT----------------------------------");
+        
         Collections.shuffle(studenten);
-        StudentCijferComparator c = new StudentCijferComparator();
-        Sorter.bubbleSort(studenten, c);
-        
-        for (Student s : studenten) {
-            System.out.println(s);
-        }
-        
-        System.out.println("BUCKETSORT----------------------------------");
-        
-        Collections.shuffle(studenten);
-        
+//        //sorteer studenten d.m.v. bucket sort op studentnr en alphabet klasnr
         ArrayList<Bucket> buckets = Sorter.bucketSortStudents(studenten);
+////        
+//        for (Bucket bucket : buckets) {
+//            System.out.println("KLAS: " + bucket.getKlas());
+//            for (Student s : bucket.getItems()) {
+//                System.out.println(s.toString());
+//            }
+//        }
         
-        for (Bucket bucket : buckets) {
-            System.out.println("KLAS: " + bucket.getKlas());
-            for (Student s : bucket.getItems()) {
-                System.out.println(s.toString());
-            }
-        }
+        System.out.println("aantal klas vergelijkingen: " + Counter.countKlas);
+        System.out.println("aantal student vergelijkingen: " + Counter.countStudenten);
     }
 }
