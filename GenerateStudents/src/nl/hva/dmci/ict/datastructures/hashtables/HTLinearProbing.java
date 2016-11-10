@@ -23,16 +23,15 @@ public class HTLinearProbing {
 
     public void put(String key, Student s) {
         int index = Hasher.hash(key) % table.length;
-        int newIndex = 0;
+        int newIndex = index;
         
         while (true) {
-            int putIndex = index + newIndex;
-            putIndex = putIndex % table.length;
-            if (table[putIndex] == null) {
-                table[putIndex] = s;
+            if (table[newIndex] == null) {
+                table[newIndex] = s;
                 break;
             } else {
                 newIndex++;
+                newIndex %= table.length;
                 collisionsCount++;
             }
         }
