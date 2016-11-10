@@ -39,16 +39,15 @@ public class HTLinearProbing {
 
     public Student get(String key) {
         int index = Hasher.hash(key) % table.length;
-        int newIndex = 0;
+        int newIndex = index;
         
         while (true) {
-            int putIndex = index + newIndex;
-            putIndex = putIndex % table.length;
-            if (table[index + newIndex].getLdap().equals(key)) {
-                return table[index + newIndex];
+            if (table[newIndex].getLdap().equals(key)) {
+                return table[newIndex];
             }
             else {
                 newIndex++;
+                newIndex =+ table.length;
             }
         }
     }

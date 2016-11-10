@@ -21,36 +21,46 @@ public class GenerateStudents {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        StudentList studentsList = new StudentList(10000);
+        int aantalStudenten = 13;
+        StudentList studentsList = new StudentList(aantalStudenten);
         Student[] students = studentsList.getList();
-        System.out.println(students[1000]);        
+        int checkIndex = 12; 
+        System.out.println(students[checkIndex]);        
         
-        HTSeperateChaining htsc = new HTSeperateChaining(10501);
+        HTSeperateChaining htsc = new HTSeperateChaining(aantalStudenten);
         
         for (int i = 0; i < students.length; i++) {
             htsc.put(students[i].getLdap(), students[i]);
         }
         
-        System.out.println(htsc.getCollisionsCount());
-        System.out.println(htsc.get(students[1000].getLdap()));
+        System.out.println("aantal collisions htsc: " + htsc.getCollisionsCount());
+        System.out.println("studenten:");
+        for (Student student : students) {
+            System.out.println(student.getLdap()); 
+        }
         
-        HTLinearProbing htlp = new HTLinearProbing(10501);
+        HTLinearProbing htlp = new HTLinearProbing(aantalStudenten);
         
         for (int i = 0; i < students.length; i++) {
             htlp.put(students[i].getLdap(), students[i]);
         }
         
-        System.out.println(htlp.getCollisionsCount());
-        System.out.println(htlp.get(students[1000].getLdap()));
-        
-        HTQuadraticProbing htqp = new HTQuadraticProbing(10501);
+        System.out.println("aantal collisions htlp: " + htlp.getCollisionsCount());
+        System.out.println("studenten:");
+        for (Student student : students) {
+            System.out.println(student.getLdap()); 
+        }
+        HTQuadraticProbing htqp = new HTQuadraticProbing(aantalStudenten);
         
         for (int i = 0; i < students.length; i++) {
             htqp.put(students[i].getLdap(), students[i]);
         }
         
-        System.out.println(htqp.getCollisionsCount());
-        System.out.println(htqp.get(students[1000].getLdap()));
+        System.out.println("HTQP: \naantal collisions: " +htqp.getCollisionsCount());
+        System.out.println("studenten:");
+        for (Student student : students) {
+            System.out.println(student.getLdap()); 
+        }
     }
     
 }

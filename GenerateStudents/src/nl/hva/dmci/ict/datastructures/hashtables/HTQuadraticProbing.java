@@ -21,18 +21,22 @@ public class HTQuadraticProbing {
         table = new Student[size];
     }
 
+    
+    
     public void put(String key, Student s) {
         int index = Hasher.hash(key) % table.length;
-        int newIndex = 0;
+        int newIndex = index;
+        int count = 0;
         
         while (true) {
-            int putIndex = index + (int)Math.pow(newIndex, 2);
-            putIndex = putIndex % table.length;
-            if (table[putIndex] == null) {
-                table[putIndex] = s;
+            if (table[newIndex] == null) {
+                table[newIndex] = s;
                 break;
             } else {
-                newIndex++;
+                count++;
+                newIndex += (int)Math.pow(count, 2);
+                newIndex %= table.length;
+                newIndex = Math.abs(newIndex);
                 collisionsCount++;
             }
         }
@@ -40,16 +44,18 @@ public class HTQuadraticProbing {
 
     public Student get(String key) {
         int index = Hasher.hash(key) % table.length;
-        int newIndex = 0;
+        int newIndex = index;
+        int count = 0;
         
         while (true) {
-            int putIndex = index + (int)Math.pow(newIndex, 2);
-            putIndex = putIndex % table.length;
-            if (table[putIndex].getLdap().equals(key)) {
-                return table[putIndex];
+            if (table[newIndex].getLdap().equals(key)) {
+                return table[newIndex];
             }
             else {
-                newIndex++;
+            count++;
+            newIndex = index + (int)Math.pow(count, 2);
+            newIndex %= table.length;
+            newIndex = Math.abs(newIndex);
             }
         }
     }
