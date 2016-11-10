@@ -27,9 +27,7 @@ public class HTLinearProbing {
         
         while (true) {
             int putIndex = index + newIndex;
-            if (putIndex >= table.length) {
-                putIndex = putIndex % table.length;
-            }
+            putIndex = putIndex % table.length;
             if (table[putIndex] == null) {
                 table[putIndex] = s;
                 break;
@@ -45,9 +43,7 @@ public class HTLinearProbing {
         int newIndex = 0;
         
         while (true) {int putIndex = index + newIndex;
-            if (putIndex >= table.length) {
-                putIndex = putIndex % table.length;
-            }
+            putIndex = putIndex % table.length;
             if (table[index + newIndex].getLdap().equals(key)) {
                 return table[index + newIndex];
             }
