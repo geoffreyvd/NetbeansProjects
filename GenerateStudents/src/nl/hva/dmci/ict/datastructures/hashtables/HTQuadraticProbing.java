@@ -18,7 +18,7 @@ public class HTQuadraticProbing {
     private int collisionsCount;
 
     public HTQuadraticProbing(int size) {
-        table = new Student[size * 2];
+        table = new Student[size];
     }
 
     public void put(String key, Student s) {
@@ -26,8 +26,10 @@ public class HTQuadraticProbing {
         int newIndex = 0;
         
         while (true) {
-            if (table[index + (int)Math.pow(newIndex, 2)] == null) {
-                table[index + (int)Math.pow(newIndex, 2)] = s;
+            int putIndex = index + (int)Math.pow(newIndex, 2);
+            putIndex = putIndex % table.length;
+            if (table[putIndex] == null) {
+                table[putIndex] = s;
                 break;
             } else {
                 newIndex++;
@@ -41,8 +43,10 @@ public class HTQuadraticProbing {
         int newIndex = 0;
         
         while (true) {
-            if (table[index + newIndex].getLdap().equals(key)) {
-                return table[index + (int)Math.pow(newIndex, 2)];
+            int putIndex = index + (int)Math.pow(newIndex, 2);
+            putIndex = putIndex % table.length;
+            if (table[putIndex].getLdap().equals(key)) {
+                return table[putIndex];
             }
             else {
                 newIndex++;
