@@ -18,7 +18,7 @@ public class HTLinearProbing {
     private int collisionsCount;
 
     public HTLinearProbing(int size) {
-        table = new Student[size * 2];
+        table = new Student[size];
     }
 
     public void put(String key, Student s) {
@@ -42,7 +42,8 @@ public class HTLinearProbing {
         int index = Hasher.hash(key) % table.length;
         int newIndex = 0;
         
-        while (true) {int putIndex = index + newIndex;
+        while (true) {
+            int putIndex = index + newIndex;
             putIndex = putIndex % table.length;
             if (table[index + newIndex].getLdap().equals(key)) {
                 return table[index + newIndex];
