@@ -23,7 +23,7 @@ public class HTSeperateChaining {
     }
     
     public void put(String key, Student s) {
-        int index = Hasher.hash(key) % table.length + 1;
+        int index = Hasher.hash(key) % table.length;
         if (table[index] == null) {
             table[index] = new LinkedList();
         }
@@ -35,7 +35,7 @@ public class HTSeperateChaining {
     }
     
     public Object get(String key) {
-        int index = Hasher.hash(key) % table.length + 1;
+        int index = Hasher.hash(key) % table.length;
         
         LinkedList list = table[index];
         

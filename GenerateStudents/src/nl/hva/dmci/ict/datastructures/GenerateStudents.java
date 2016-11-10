@@ -25,7 +25,7 @@ public class GenerateStudents {
         Student[] students = studentsList.getList();
         System.out.println(students[1000]);        
         
-        HTSeperateChaining htsc = new HTSeperateChaining(10000);
+        HTSeperateChaining htsc = new HTSeperateChaining(10501);
         
         for (int i = 0; i < students.length; i++) {
             htsc.put(students[i].getLdap(), students[i]);
@@ -34,7 +34,7 @@ public class GenerateStudents {
         System.out.println(htsc.getCollisionsCount());
         System.out.println(htsc.get(students[1000].getLdap()));
         
-        HTLinearProbing htlp = new HTLinearProbing(10000);
+        HTLinearProbing htlp = new HTLinearProbing(10501);
         
         for (int i = 0; i < students.length; i++) {
             htlp.put(students[i].getLdap(), students[i]);
@@ -43,14 +43,14 @@ public class GenerateStudents {
         System.out.println(htlp.getCollisionsCount());
         System.out.println(htlp.get(students[1000].getLdap()));
         
-        HTQuadraticProbing htqp = new HTQuadraticProbing(10000);
+        HTQuadraticProbing htqp = new HTQuadraticProbing(10501);
         
         for (int i = 0; i < students.length; i++) {
             htqp.put(students[i].getLdap(), students[i]);
         }
         
-        System.out.println(htlp.getCollisionsCount());
-        System.out.println(htlp.get(students[1000].getLdap()));
+        System.out.println(htqp.getCollisionsCount());
+        System.out.println(htqp.get(students[1000].getLdap()));
     }
     
 }

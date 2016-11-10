@@ -22,12 +22,16 @@ public class HTLinearProbing {
     }
 
     public void put(String key, Student s) {
-        int index = Hasher.hash(key) % table.length + 1;
+        int index = Hasher.hash(key) % table.length;
         int newIndex = 0;
         
         while (true) {
-            if (table[index + newIndex] == null) {
-                table[index + newIndex] = s;
+            int putIndex = index + newIndex;
+            if (putIndex >= table.length) {
+                putIndex = putIndex % table.length;
+            }
+            if (table[putIndex] == null) {
+                table[putIndex] = s;
                 break;
             } else {
                 newIndex++;
@@ -37,10 +41,13 @@ public class HTLinearProbing {
     }
 
     public Student get(String key) {
-        int index = Hasher.hash(key) % table.length + 1;
+        int index = Hasher.hash(key) % table.length;
         int newIndex = 0;
         
-        while (true) {
+        while (true) {int putIndex = index + newIndex;
+            if (putIndex >= table.length) {
+                putIndex = putIndex % table.length;
+            }
             if (table[index + newIndex].getLdap().equals(key)) {
                 return table[index + newIndex];
             }

@@ -22,7 +22,7 @@ public class HTQuadraticProbing {
     }
 
     public void put(String key, Student s) {
-        int index = Hasher.hash(key) % table.length + 1;
+        int index = Hasher.hash(key) % table.length;
         int newIndex = 0;
         
         while (true) {
@@ -37,7 +37,7 @@ public class HTQuadraticProbing {
     }
 
     public Student get(String key) {
-        int index = Hasher.hash(key) % table.length + 1;
+        int index = Hasher.hash(key) % table.length;
         int newIndex = 0;
         
         while (true) {
