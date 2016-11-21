@@ -8,6 +8,7 @@ package datastructures2;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Locale;
+import sorters.QuickSort;
 
 /**
  *
@@ -19,7 +20,7 @@ public class Datastructures2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int aantalStudenten = 100;
+        int aantalStudenten = 10;
         int aantalLeerroutes = 5;
         //Rondt af naar boven, bij 31/5 = 6,2 = 7 zodat er genoeg plek is
         //bij de volgende berekeningen
@@ -87,7 +88,7 @@ public class Datastructures2 {
         
         Collections.shuffle(studenten);
 //        //sorteer studenten d.m.v. bucket sort op studentnr en alphabet klasnr
-        ArrayList<Bucket> buckets = Sorter.bucketSortStudents(studenten);
+//        ArrayList<Bucket> buckets = Sorter.bucketSortStudents(studenten);
 ////        
 //        for (Bucket bucket : buckets) {
 //            System.out.println("KLAS: " + bucket.getKlas());
@@ -98,5 +99,11 @@ public class Datastructures2 {
         
         System.out.println("aantal klas vergelijkingen: " + Counter.countKlas);
         System.out.println("aantal student vergelijkingen: " + Counter.countStudenten);
+        
+        QuickSort.sort(studenten);
+        
+        for (Student s : studenten) {
+            System.out.println(s);
+        }
     }
 }

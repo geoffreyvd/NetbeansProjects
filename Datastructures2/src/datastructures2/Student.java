@@ -48,6 +48,10 @@ public class Student implements Comparable<Student>{
 
     @Override
     public int compareTo(Student t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int result = Float.compare(t.getCijfer(), cijfer);
+        if (result == 0) {
+            return Integer.compare(studentNummer, t.getStudentNummer());
+        }
+        return result;
     }    
 }
