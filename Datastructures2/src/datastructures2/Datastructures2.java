@@ -8,6 +8,7 @@ package datastructures2;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Locale;
+import sorters.BinaryLinkedList;
 import sorters.QuickSort;
 
 /**
@@ -20,7 +21,7 @@ public class Datastructures2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int aantalStudenten = 10;
+        int aantalStudenten = 10000;
         int aantalLeerroutes = 5;
         //Rondt af naar boven, bij 31/5 = 6,2 = 7 zodat er genoeg plek is
         //bij de volgende berekeningen
@@ -34,7 +35,7 @@ public class Datastructures2 {
         System.out.println("aantal studenten per richting: " + aantalStudentenPerRichting);
         System.out.println("aantal klassen per richting: " + aantalKlassenPerRichting);
         System.out.println("aantal studenten per klas: " + aantalStudentenPerKlas);
-        
+
         ArrayList<Student> studenten = new ArrayList<>();
         ArrayList<Klas> klassen = new ArrayList<>(aantalKlassen);
         //voeg klassen toe, per richting evenveel klassen dus kan ze tegelijk 
@@ -46,7 +47,7 @@ public class Datastructures2 {
             klassen.add(new Klas('S', i));
             klassen.add(new Klas('T', i));
         }
-        
+
         int newStudentCount = 0;
         for (int i = 0; i < aantalStudentenPerKlas; i++) {
             for (Klas klas : klassen) {
@@ -79,13 +80,11 @@ public class Datastructures2 {
 //        Collections.shuffle(studenten);
 //        StudentCijferComparator c = new StudentCijferComparator();
 //        Sorter.bubbleSort(studenten, c);
-        
 //        for (Student s : studenten) {
 //            System.out.println(s);
 //        }
 //        
         //System.out.println("BUCKETSORT----------------------------------");
-        
         Collections.shuffle(studenten);
 //        //sorteer studenten d.m.v. bucket sort op studentnr en alphabet klasnr
 //        ArrayList<Bucket> buckets = Sorter.bucketSortStudents(studenten);
@@ -96,14 +95,17 @@ public class Datastructures2 {
 //                System.out.println(s.toString());
 //            }
 //        }
-        
-        System.out.println("aantal klas vergelijkingen: " + Counter.countKlas);
-        System.out.println("aantal student vergelijkingen: " + Counter.countStudenten);
-        
+
         QuickSort.sort(studenten);
-        
-        for (Student s : studenten) {
-            System.out.println(s);
+
+        System.out.println("aantal cijfer vergelijkingen: " + Counter.countDubbeleCijfers);
+        System.out.println("aantal student vergelijkingen: " + Counter.countStudenten);
+
+        System.out.println("binary search tree (linked list)");
+        BinaryLinkedList binList = new BinaryLinkedList();
+
+        for (Student student : studenten) {
+            binList.add(student);
         }
     }
 }

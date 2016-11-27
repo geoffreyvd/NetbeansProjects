@@ -49,7 +49,9 @@ public class Student implements Comparable<Student>{
     @Override
     public int compareTo(Student t) {
         int result = Float.compare(t.getCijfer(), cijfer);
+        Counter.countStudenten++;
         if (result == 0) {
+            Counter.countDubbeleCijfers++;
             return Integer.compare(studentNummer, t.getStudentNummer());
         }
         return result;

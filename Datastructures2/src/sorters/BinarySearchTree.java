@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package datastructures2;
+package sorters;
+
+import datastructures2.Student;
+import java.util.LinkedList;
 
 /**
  *
  * @author geoffrey
  */
-public class Counter {
-    //aantal vergelijkingen
-    public static long countStudenten = 0;
-    public static long countKlas = 0;
-    public static long countDubbeleCijfers = 0;
+public class BinarySearchTree {
+    
     
 }

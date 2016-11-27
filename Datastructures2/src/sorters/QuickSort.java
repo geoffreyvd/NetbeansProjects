@@ -15,24 +15,24 @@ import java.util.ArrayList;
 public class QuickSort {
     
     public static void sort(ArrayList<Student> students) {
-        sort(students, 0, students.size());
+        sort(students, 0, students.size() -1);
     }
     
     private static void sort(ArrayList<Student> students, int start, int end) {
-        if (start + 1 == end) {
+        if (start >= end) {
             return;
         }
         
         Student pivot = students.get(start);
         
-        int lowerBorder = start + 1;
+        int lowerBorder = start;
         
-        for (int i = start + 1; i < end; i++) {
+        for (int i = start + 1; i <= end; i++) {
             if (students.get(i).compareTo(pivot) < 0) {
+                lowerBorder++;
                 Student temp = students.get(lowerBorder);
                 students.set(lowerBorder, students.get(i));
                 students.set(i, temp);
-                lowerBorder++;
             }
         }
         
@@ -40,7 +40,7 @@ public class QuickSort {
         students.set(lowerBorder, pivot);
         students.set(start, temp);
         
-        sort(students, start, lowerBorder);
+        sort(students, start, lowerBorder - 1);
         sort(students, lowerBorder + 1, end);
     }
 }
