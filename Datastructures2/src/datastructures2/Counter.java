@@ -14,5 +14,6 @@ public class Counter {
     public static long countStudenten = 0;
     public static long countKlas = 0;
     public static long countDubbeleCijfers = 0;
+    public static long countAantalSwaps = 0;
     
 }

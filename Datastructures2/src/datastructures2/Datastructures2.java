@@ -21,7 +21,7 @@ public class Datastructures2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int aantalStudenten = 160000;
+        int aantalStudenten = 10000;
         int aantalLeerroutes = 5;
         //Rondt af naar boven, bij 31/5 = 6,2 = 7 zodat er genoeg plek is
         //bij de volgende berekeningen
@@ -31,10 +31,10 @@ public class Datastructures2 {
         int aantalKlassen = aantalKlassenPerRichting * 5;
 
         System.out.println("aantal studenten: " + aantalStudenten);
-        System.out.println("aantal klassen: " + aantalKlassen);
-        System.out.println("aantal studenten per richting: " + aantalStudentenPerRichting);
-        System.out.println("aantal klassen per richting: " + aantalKlassenPerRichting);
-        System.out.println("aantal studenten per klas: " + aantalStudentenPerKlas);
+//        System.out.println("aantal klassen: " + aantalKlassen);
+//        System.out.println("aantal studenten per richting: " + aantalStudentenPerRichting);
+//        System.out.println("aantal klassen per richting: " + aantalKlassenPerRichting);
+//        System.out.println("aantal studenten per klas: " + aantalStudentenPerKlas);
 
         ArrayList<Student> studenten = new ArrayList<>();
         ArrayList<Klas> klassen = new ArrayList<>(aantalKlassen);
@@ -100,14 +100,18 @@ public class Datastructures2 {
         QuickSort.sort(studenten);
         System.out.println("sort time in miliseconds: " + (System.currentTimeMillis() - time));
 
-        System.out.println("aantal cijfer vergelijkingen: " + Counter.countDubbeleCijfers);
+        System.out.println("aantal dubbele cijfers: " + Counter.countDubbeleCijfers);
         System.out.println("aantal student vergelijkingen: " + Counter.countStudenten);
+        System.out.println("aantal swaps: " + Counter.countAantalSwaps);
 
         System.out.println("binary search tree (linked list)");
         BinaryLinkedList binList = new BinaryLinkedList();
 
+        Collections.shuffle(studenten);
         for (Student student : studenten) {
             binList.add(student);
         }
+        
+        System.out.println("rank: " + binList.rank(1.1f));
     }
 }
