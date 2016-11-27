@@ -21,7 +21,7 @@ public class Datastructures2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int aantalStudenten = 10000;
+        int aantalStudenten = 160000;
         int aantalLeerroutes = 5;
         //Rondt af naar boven, bij 31/5 = 6,2 = 7 zodat er genoeg plek is
         //bij de volgende berekeningen
@@ -96,7 +96,9 @@ public class Datastructures2 {
 //            }
 //        }
 
+        long time = System.currentTimeMillis();
         QuickSort.sort(studenten);
+        System.out.println("sort time in miliseconds: " + (System.currentTimeMillis() - time));
 
         System.out.println("aantal cijfer vergelijkingen: " + Counter.countDubbeleCijfers);
         System.out.println("aantal student vergelijkingen: " + Counter.countStudenten);
