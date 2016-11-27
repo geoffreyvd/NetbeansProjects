@@ -24,7 +24,21 @@ public class QuickSort {
             return;
         }
 
-        Student pivot = students.get(start);
+        Student pivot = students.get((end - start) / 2 + start);
+        Student begin = students.get(start);
+        Student ending = students.get(end);
+
+        if (begin.compareTo(pivot) > 0) {
+            if (begin.compareTo(ending) > 0) {
+                pivot = ending;
+            } else {
+                pivot = begin;
+            }
+        } else if (begin.compareTo(ending) > 0) {
+            pivot = begin;
+        } else if (pivot.compareTo(ending) > 0) {
+            pivot = ending;
+        }
 
         int lowerBorder = start;
 

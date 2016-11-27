@@ -33,12 +33,12 @@ public class Bucket {
         if (comparator == null) {
             comparator = new StudentNummerComparator();
         }
-        
+
         if (items.size() < 1) {
             items.add(student);
             return;
         }
-        
+
         int iteration = 0;
         boolean added = false;
         for (Student listItem : items) {
@@ -47,10 +47,10 @@ public class Bucket {
                 added = true;
                 break;
             }
-            
+
             iteration++;
         }
-        
+
         if (!added) {
             items.add(iteration, student);
         }

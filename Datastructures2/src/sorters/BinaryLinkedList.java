@@ -23,11 +23,11 @@ public class BinaryLinkedList {
         }
     }
 
-    public int rank(float cijfer){       
-        return  first.rank(cijfer, 0);
+    public int rank(float cijfer) {
+        return first.rank(cijfer, 0);
     }
-//    public Student get(float cijfer){
-//        first.get(student);
-//        return student;
-//    }
+
+    public Student get(float cijfer) {
+        return first.get(cijfer);
+    }
 }

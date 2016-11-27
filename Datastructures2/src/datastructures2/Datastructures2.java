@@ -21,7 +21,7 @@ public class Datastructures2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int aantalStudenten = 10000;
+        int aantalStudenten = 160000;
         int aantalLeerroutes = 5;
         //Rondt af naar boven, bij 31/5 = 6,2 = 7 zodat er genoeg plek is
         //bij de volgende berekeningen
@@ -112,6 +112,6 @@ public class Datastructures2 {
             binList.add(student);
         }
         
-        System.out.println("rank: " + binList.rank(1.1f));
+        System.out.println("rank: " + binList.rank(5.5f));
     }
 }

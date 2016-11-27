@@ -46,14 +46,21 @@ public class Node {
         }
     }
 
-    public Student get(Student student) {
-        int result = root.compareTo(student);
+    public Student get(float cijfer) {
+        float result = key - cijfer;
         if (result == 0) {
             return root;
         } else if (result > 0) {
-            return left.get(student);
+            if (left != null) {
+                return left.get(cijfer);
+            } else {
+                return null;
+            }
+        } else if (right != null) {
+            return right.get(cijfer);
+        } else {
+            return null;
         }
-        return right.get(student);
     }
 
     public int rank(float cijfer, int rank) {
@@ -61,16 +68,14 @@ public class Node {
             return rank + countLeftSub;
         } else if ((cijfer - key) < 0) {
             if (left != null) {
-                rank= left.rank(cijfer, rank);
+                rank = left.rank(cijfer, rank);
             } else {
                 return rank;
             }
-        }else{
-            if(right != null){
-                rank= right.rank(cijfer, rank + countLeftSub + 1 );
-            }else{
-                return rank + countLeftSub + 1;
-            }
+        } else if (right != null) {
+            rank = right.rank(cijfer, rank + countLeftSub + 1);
+        } else {
+            return rank + countLeftSub + 1;
         }
         return rank;
     }
